@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LONDETISHUN</title>
+    <link rel="icon" href="https://i.ibb.co/yFXqs3wZ/x.jpg" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            padding: 20px;
+            background-color: #0B9170;
+            padding-top: 70px;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .header {
+            background-color: #040720;
+            color: #FFFF02;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-text {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: 070056;
+            background: linear-gradient(135deg, #EDD0FF 0%, #EDD0FF 100%);
+            padding: 15px 30px;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 5px #FFFF02, 0 0 10px #FFFF02; }
+            100% { text-shadow: 0 0 10px #FF5733, 0 0 15px #FF5733; }
+        }
+
+        .scroll-message {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+            background: linear-gradient(135deg, #36151A 0%, #5D3929 100%);
+            padding: 15px 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .scroll-message::after {
+            content: '👇👇';
+            display: block;
+            font-size: 20px;
+            margin-top: 5px;
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .note-message {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+            background: linear-gradient(135deg, #1a2a44 0%, #6a1b9a 100%);
+            padding: 15px 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .note-message:hover {
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 600px) {
+            .header-text {
+                font-size: 18px;
+                padding: 10px;
+            }
+            .header {
+                padding: 10px;
+            }
+            .title {
+                font-size: 24px;
+                padding: 12px 20px;
+                max-width: 90%;
+            }
+            .scroll-message {
+                font-size: 16px;
+                padding: 8px 15px;
+                max-width: 90%;
+            }
+            .scroll-message::after {
+                font-size: 18px;
+            }
+            .note-message {
+                font-size: 14px;
+                padding: 12px 15px;
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .header-text {
+                font-size: 14px;
+                padding: 8px;
+            }
+            .title {
+                font-size: 20px;
+                padding: 10px 15px;
+            }
+            .scroll-message {
+                font-size: 14px;
+                padding: 6px 12px;
+            }
+            .scroll-message::after {
+                font-size: 16px;
+            }
+            .note-message {
+                font-size: 12px;
+                padding: 10px 12px;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .circle-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .circle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card {
+            position: relative;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            margin: 20px;
+            padding: 30px;
+            background-color: #EBE3DB;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            border-left: 6px solid #5EB344;
+            display: flex;
+            align-items: center;
+        }
+
+        .second-card {
+            font-size: 18px;
+            padding: 25px;
+            background-color: #EBE3DB;
+            width: 75%;
+            margin: 20px auto;
+            border-radius: 10px;
+            border-left: 6px solid #FF5733;
+            display: flex;
+            align-items: center;
+        }
+
+        .third-card {
+            font-size: 16px;
+            padding: 25px;
+            background-color: #EBE3DB;
+            width: 75%;
+            margin: 20px auto;
+            border-radius: 10px;
+            border-left: 6px solid #20183A;
+            display: flex;
+            align-items: center;
+        }
+
+        .card svg {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            fill: #5EB344;
+        }
+
+        .second-card svg {
+            fill: #FF5733;
+        }
+
+        .third-card svg {
+            fill: #20183A;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(113, 51, 255, 0.5), 0 6px 15px rgba(113, 51, 255, 0.3);
+        }
+
+        .second-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(255, 87, 51, 0.5), 0 6px 15px rgba(255, 87, 51, 0.3);
+        }
+
+        .third-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(255, 87, 51, 0.5), 0 6px 15px rgba(255, 87, 51, 0.3);
+        }
+
+        .subcards {
+            display: none;
+            padding-left: 20px;
+            text-align: center;
+        }
+
+        .subcard {
+            position: relative;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #fff;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            transition: background-color 1s, transform 1s;
+            border-left: 6px solid #00FFFF;
+            display: flex;
+            align-items: center;
+        }
+
+        .subcard svg {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            fill: #00FFFF;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .subcard:hover svg {
+            opacity: 1;
+        }
+
+        .subcard:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 255, 255, 0.5), 0 6px 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .button-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #ADFFFC 0%, #000000 100%);
+            color: yellow;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn svg {
+            margin-right: 10px;
+            fill: #fff;
+        }
+
+        .btn:hover, .btn:active {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-img1 {
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 16 / 9;
+            margin: 10px auto;
+            border-radius: 10px;
+            object-fit: cover;
+            display: none;
+        }
+
+        .card-img2 {
+            width: 100px;
+            height: 100px;
+            margin: 10px auto;
+            border-radius: 10px;
+            object-fit: cover;
+            display: none;
+        }
+
+        .subcards .card-img1 {
+            display: block;
+        }
+
+        .subcards .card-img2 {
+            display: block;
+        }
+
+        .image-text {
+            margin: 10px 0;
+            display: none;
+        }
+
+        .subcards .image-text {
+            display: block;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0C0123 20%, #FA5460 80%);
+            z-index: 2000;
+            transition: left 0.3s ease-in-out;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-y: auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar-header {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, #1a2a44 0%, #6a1b9a 100%);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar-header h1 {
+            font-size: 35px;
+            font-weight: 600;
+            color: #FFFF02;
+            margin: 0;
+        }
+
+        .sidebar-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .sidebar.open .sidebar-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sidebar-content h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #04D0FF;
+            border-bottom: 2px solid #FF5733;
+            padding-bottom: 10px;
+        }
+
+        .sidebar-content p, .sidebar-content ul {
+            font-size: 12px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-content ul {
+            list-style-type: disc;
+            padding-left: 10px;
+        }
+
+        .sidebar-content li {
+            margin-bottom: 5px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .sidebar-content li:hover {
+            transform: translateX(10px);
+            color: #00FFFF;
+        }
+
+        .close-sidebar {
+            background: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 2200;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .close-sidebar svg {
+            fill: #1a2a44;
+            width: 24px;
+            height: 24px;
+        }
+
+        .close-sidebar:hover, .close-sidebar:active {
+            background-color: #FFFF02;
+            transform: rotate(90deg);
+        }
+
+        .close-sidebar:hover svg, .close-sidebar:active svg {
+            fill: #6a1b9a;
+        }
+
+        .sidebar-btn {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #040720 0%, #1a2a44 100%);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .sidebar-btn svg {
+            margin-right: 8px;
+            fill: #fff;
+            width: 16px;
+            height: 16px;
+        }
+
+        .sidebar-btn:hover, .sidebar-btn:active {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-btn, .website-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, #FF0042 0%, #C70039 100%);
+        }
+
+        .website-btn {
+            background: linear-gradient(135deg, #6F0047 0%, #4A002F 100%);
+        }
+
+        .contact-btn svg, .website-btn svg {
+            margin-right: 10px;
+            fill: #fff;
+            width: 20px;
+            height: 20px;
+        }
+
+        .contact-btn:hover, .contact-btn:active,
+        .website-btn:hover, .website-btn:active {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-btn:active, .website-btn:active {
+            transform: scale(0.95);
+        }
+
+        .contact-container, .website-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        /* Slideshow Styles */
+        .slideshow-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #110505;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            border: 4px solid transparent;
+            animation: borderGlow 10s linear infinite;
+        }
+
+        @keyframes borderGlow {
+            10% {
+                border-color: #FFFF4C;
+                
+            }
+            40% {
+                border-color: #8C55FF;
+                
+            }
+            70% {
+                border-color: #ED71FF;
+                
+            }
+            100% {
+                border-color: #FF006B;
+                
+            }
+        }
+
+        .slideshow {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .slide img {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 2px solid #FFFF02;
+        }
+
+        .slide-caption {
+            margin-top: 3px;
+            font-size: 15px;
+            color: #fff;
+            background: linear-gradient(135deg, #1a2a44 0%, #6a1b9a 100%);
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .slideshow.visible .slide.active {
+            animation: zoomIn 2s ease-in-out;
+        }
+
+        @keyframes zoomIn {
+            0% { transform: scale(2); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            .contact-btn, .website-btn {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+            .website-container, .contact-container {
+                margin: 15px 0;
+            }
+            .slideshow-container {
+                max-width: 90%;
+                padding: 10px;
+            }
+            .slideshow {
+                max-width: 100%;
+            }
+            .slide img {
+                max-width: 100%;
+            }
+            .slide-caption {
+                font-size: 10px;
+                padding: 8px;
+            }
+            .sidebar-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            .sidebar-btn svg {
+                width: 14px;
+                height: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-left">
+            <button class="sidebar-btn" id="open-sidebar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+                <span>Menu</span>
+            </button>
+        </div>
+        <span class="header-text">𝗕𝘆 𝗛𝗔𝗖𝗞𝗛𝗘𝗜𝗦𝗧😈</span>
+    </div>
+    <h2 id="subject-title" class="title">⋆⋇ 𝗕𝗵𝗼𝘁𝗶𝗸𝗩𝗶𝗴𝘆𝗮𝗻 𝗪𝗮𝗹𝗮 ⋇⋆</h2>
+    <div class="website-container">
+        <a href="https://yashyasag.github.io/hiddens_officials" class="website-btn" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.74.372-2.682A6.999 6.999 0 0 1 2.89 4H1.117a7.01 7.01 0 0 0 2.79 3.5H4.09zM1.117 12a7.008 7.008 0 0 0 2.79 3.5H4.09a6.963 6.963 0 0 1-2.973-3.5zM7.5 14.923V12H5.145a7.96 7.96 0 0 0 .468 2.923c.552-1.035 1.218-1.65 1.887-1.855zM11.91 12a6.963 6.963 0 0 1-2.973 3.5h1.773a7.008 7.008 0 0 0 2.79-3.5H11.91zm1.483-4.5a6.999 6.999 0 0 1-.372-2.682h1.773a7.01 7.01 0 0 0-2.79-3.5h-.183c.234.942.342 1.805.372 2.682h-1.773z"/>
+            </svg>
+            Our Main Website
+        </a>
+    </div>
+    <div class="slideshow-container">
+        <div class="slideshow">
+            <div class="slide active">
+                <img src="https://files.catbox.moe/g1m0yl.jpg" alt="Advertisment 1">
+                <div class="slide-caption">𝗘𝗻𝗷𝗼𝘆 𝗙𝗿𝗶𝗲𝗻𝗱𝘀 🥰🥰</div>
+            </div>
+            <div class="slide">
+                <img src="https://i.ibb.co/xKBMqBSd/x.jpg" alt="Advertisment 2">
+                <div class="slide-caption">We are Trying to Adding New Batches Daily ❣️</div>
+            </div>
+            <div class="slide">
+                <img src="https://files.catbox.moe/g1m0yl.jpg" alt="Advertisment 3">
+                <div class="slide-caption">Join our community for exclusive tips and updates via Telegram!</div>
+            </div>
+        </div>
+    </div>
+
+    <p class="scroll-message">𝗧𝗵𝗶𝘀 𝗶𝘀 𝗬𝗼𝘂𝗿 𝗖𝗼𝗻𝘁𝗲𝗻𝘁 💝</p>
+    <div id="cards-container">
+        <!-- Cards div through JS -->
+    </div>
+
+    <div class="button-container">
+        <a href="https://t.me/HIDDEN_OFFICIALS_5/3" class="btn" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.23c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09"/>
+            </svg>
+            <span>𝗝𝗼𝗶𝗻 𝗕𝗮𝗰𝗸𝘂𝗽</span>
+        </a>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1>𝗛𝗔𝗖𝗞𝗛𝗘𝗜𝗦𝗧  😈</h1>
+            <button class="close-sidebar" id="close-sidebar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <h2>About</h2>
+            <p>Aapka Sawagat hai BHOTIKVIGYAN Wala website pe 🙏🙏. Yeh Website ek daam Easy to use and free Jisse Aap Ache se padh sako 😊 Bina koi problem aur please es website ko Apne Dosto ke sath share kijiyega 🥺🥺</p>
+            <h2>✨ 𝗙𝗲𝗮𝘁𝘂𝗿𝗲𝘀</h2>
+            <ul>
+                <li>𝐂𝐨𝐦𝐩𝐥𝐞𝐭𝐞𝐥𝐲 𝐟𝐫𝐞𝐞 𝐭𝐨 𝐮𝐬𝐞</li>
+                <li>𝐍𝐨 𝐧𝐞𝐞𝐝 𝐭𝐨 𝐨𝐩𝐞𝐧 𝐀𝐝 𝐥𝐢𝐧𝐤𝐬 𝐭𝐨 𝐚𝐜𝐜𝐞𝐬𝐬 𝐥𝐞𝐜𝐭𝐮𝐫𝐞𝐬</li>
+                <li>𝐍𝐨 𝐁𝐖 𝐚𝐜𝐜𝐨𝐮𝐧𝐭 𝐫𝐞𝐪𝐮𝐢𝐫𝐞𝐝, 𝐲𝐨𝐮𝐫 𝐚𝐜𝐜𝐨𝐮𝐧𝐭 𝐬𝐭𝐚𝐲𝐬 𝐬𝐚𝐟𝐞</li>
+                <li>𝐄𝐚𝐬𝐲 𝐋𝐞𝐜𝐭𝐮𝐫𝐞 𝐛𝐚𝐜𝐤𝐮𝐩 𝐨𝐩𝐭𝐢𝐨𝐧 𝐟𝐫𝐨𝐦 𝐭𝐡𝐞 𝐰𝐞𝐛𝐬𝐢𝐭𝐞</li>
+            </ul>
+            <h2>📘 𝗛𝗼𝘄 𝘁𝗼 𝗨𝘀𝗲 ??</h2>
+            <ul>
+                <li>Click on your Class→ Select your Batch → Choose Subject → Chapter</li>
+                <li>Then, click "‼️CLICK ME‼️*, Telegram will Open</li>
+                <li>If you are new, join 4 backup channels using the buttons,
+Then click "Try Again"</li>
+                <li>Your Lecture/PDF will appear</li>
+                <li>To save or forward it, click “SAVE THIS LECTURE/PDF” (it will stay safe for 3 days without being deleted)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="contact-container">
+        <p class="note-message">𝗡𝗢𝗧𝗘 :- 𝐍𝐨 𝐚𝐧𝐲 𝐂𝐨𝐚𝐜𝐡𝐢𝐧𝐠 𝐡𝐚𝐫𝐦𝐞𝐝 𝐢𝐟 𝐬𝐭𝐢𝐥𝐥 𝐚𝐧𝐲 𝐩𝐫𝐨𝐛𝐥𝐞𝐦 𝐑𝐞𝐥𝐚𝐭𝐞𝐝 𝐭𝐨 𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 𝐭𝐡𝐞𝐧 𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐦𝐞 𝐨𝐧 𝐓𝐞𝐥𝐞𝐠𝐫𝐚𝐦 𝐈 𝐑𝐞𝐦𝐨𝐯𝐞 𝐂𝐨𝐧𝐭𝐞𝐧𝐭 𝐨𝐫 𝐃𝐨𝐰𝐧 𝐭𝐡𝐢𝐬 𝐰𝐞𝐛𝐬𝐢𝐭𝐞 . 𝐒𝐨, 𝙞𝙛 𝙮𝙤𝙪 𝙝𝙖𝙫𝙚 𝙖𝙣𝙮 𝙥𝙧𝙤𝙗𝙡𝙚𝙢 𝙟𝙪𝙨𝙩 𝙘𝙤𝙣𝙩𝙖𝙘𝙩 𝙢𝙚 🙏🙏</p>
+        <a href="https://t.me/team_hiddens_bot" class="contact-btn" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.23c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09"/>
+            </svg>
+            Contact Us
+        </a>
+    </div>
+
+    <script>
+        const firstcardsData = [
+            {
+                text: '(𝐀𝐈𝐑) 𝐃𝐑𝐎𝐏𝐏𝐄𝐑 𝐉𝐄𝐄',
+                secondcards: [
+                    {
+                        text: 'Homework Planner',
+                        image: 'https://files.catbox.moe/g1m0yl.jpg',
+                        imageText: '<span style="color: black; font-size: 16px;">𝐏𝐑𝐀𝐘𝐀𝐒 𝐉𝐄𝐄 𝟏.𝟎</span>',
+                        thirdcards: [
+                            {
+                                text: 'Physics',                              
+                                subcards: [
+                                    {
+                                        text: 'Exercise 1',
+                                        url: 'https://example.com/'
+                                    }
+                                ]
+                            },
+                          {
+                text: 'NO',
+                subcards: [
+                    { text: 'BC', url: 'OP'}
+                ]
+            },
+                          {
+                text: 'NO',
+                subcards: [
+                    { text: 'BC', url: 'OP'}
+                ]
+            },{
+                text: 'NO',
+                subcards: [
+                    { text: 'BC', url: 'OP'}
+                ]
+            },{
+                text: 'NO',
+                subcards: [
+                    { text: 'BC', url: 'OP'}
+                ]
+                                  }
+                        ]
+                    },
+                    {
+                        text: 'Study Planner 2.0',
+                        image: 'https://files.catbox.moe/g1m0yl.jpg',
+                        imageText: '<span style="color: black; font-size: 16px;">𝐒𝐓𝐔𝐃𝐘 𝐏𝐋𝐀𝐍 𝟐.𝟎</span>',
+                        thirdcards: [
+                            {
+                                text: 'Chemistry',
+                                image: 'https://files.catbox.moe/1zrqqp.jpg',
+                                imageText: '<span style="color: blue; font-size: 14px;">𝐂𝐇𝐄𝐌 𝐒𝐈𝐑</span>',
+                                subcards: [
+                                    {
+                                        text: 'Exercise 2',
+                                        url: 'https://example.com/chemistry'
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        function createCard(cardData, cardLevel = 'card') {
+            const card = document.createElement('div');
+            card.className = cardLevel === 'second-card' ? 'second-card' : cardLevel === 'third-card' ? 'third-card' : cardLevel === 'subcard' ? 'subcard' : 'card';
+            
+            // Calculate counts for partitions
+            let partitionText = '';
+            if (cardLevel === 'card') {
+                const batchCount = cardData.secondcards ? cardData.secondcards.length : 0;
+                const subjectCount = cardData.secondcards ? cardData.secondcards.reduce((sum, second) => 
+                    sum + (second.thirdcards ? second.thirdcards.length : 0), 0) : 0;
+                const chapterCount = cardData.secondcards ? cardData.secondcards.reduce((sum, second) => 
+                    sum + (second.thirdcards ? second.thirdcards.reduce((subSum, third) => 
+                        subSum + (third.subcards ? third.subcards.length : 0), 0) : 0), 0) : 0;
+                partitionText = `<div style="font-size: 14px; color: #555; margin-top: 10px;">
+                    <strong>${batchCount} BATCHES | ${subjectCount} SUBJECTS | ${chapterCount} CHAPTERS</strong>
+                </div>`;
+            } else if (cardLevel === 'second-card') {
+                const subjectCount = cardData.thirdcards ? cardData.thirdcards.length : 0;
+                const chapterCount = cardData.thirdcards ? cardData.thirdcards.reduce((sum, third) => 
+                    sum + (third.subcards ? third.subcards.length : 0), 0) : 0;
+                partitionText = `<div style="font-size: 12px; color: #555; margin-top: 8px;">
+                    <strong>${subjectCount} SUBJECTS | ${chapterCount} CHAPTERS</strong>
+                </div>`;
+            } else if (cardLevel === 'third-card') {
+                const chapterCount = cardData.subcards ? cardData.subcards.length : 0;
+                partitionText = `<div style="font-size: 12px; color: #555; margin-top: 8px;">
+                    <strong>${chapterCount} CHAPTERS</strong>
+                </div>`;
+            }
+
+            card.innerHTML = `
+                <div>
+                    <span>${cardData.text}</span>
+                    ${partitionText}
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="${cardLevel === 'second-card' || cardLevel === 'third-card' ? '#FF5733' : cardLevel === 'subcard' ? '#00FFFF' : '#FFFF02'}" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                    <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+                </svg>
+            `;
+
+            const subcardsContainer = document.createElement('div');
+            subcardsContainer.className = 'subcards';
+
+            if (cardData.image) {
+                const img = document.createElement('img');
+                img.setAttribute('data-src', cardData.image);
+                img.className = cardLevel === 'second-card' ? 'card-img1' : 'card-img2';
+                img.alt = cardData.text;
+                subcardsContainer.appendChild(img);
+
+                if (cardData.imageText) {
+                    const text = document.createElement('div');
+                    text.className = 'image-text';
+                    text.innerHTML = cardData.imageText;
+                    subcardsContainer.appendChild(text);
+                }
+            }
+
+            if (cardLevel === 'subcard' && cardData.url) {
+                card.addEventListener('click', () => window.open(cardData.url, '_blank'));
+            } else {
+                card.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const subcards = this.nextElementSibling;
+                    if (subcards.style.display === 'none' || subcards.style.display === '') {
+                        subcards.style.display = 'block';
+                        const images = subcards.querySelectorAll('img[data-src]');
+                        images.forEach(img => {
+                            if (!img.src) {
+                                img.src = img.getAttribute('data-src');
+                            }
+                        });
+                    } else {
+                        subcards.style.display = 'none';
+                    }
+                });
+            }
+
+            if (cardData.secondcards) {
+                cardData.secondcards.forEach(secondCardData => {
+                    const secondCard = createCard(secondCardData, 'second-card');
+                    subcardsContainer.appendChild(secondCard);
+                });
+            }
+
+            if (cardData.thirdcards) {
+                cardData.thirdcards.forEach(thirdCardData => {
+                    const thirdCard = createCard(thirdCardData, 'third-card');
+                    subcardsContainer.appendChild(thirdCard);
+                });
+            }
+
+            if (cardData.subcards) {
+                cardData.subcards.forEach(subcardData => {
+                    const subcard = createCard(subcardData, 'subcard');
+                    subcardsContainer.appendChild(subcard);
+                });
+            }
+
+            const container = document.createElement('div');
+            container.appendChild(card);
+            container.appendChild(subcardsContainer);
+
+            return container;
+        }
+
+        function initializeCards() {
+            const cardsContainer = document.getElementById('cards-container');
+            firstcardsData.forEach(cardData => {
+                const card = createCard(cardData);
+                cardsContainer.appendChild(card);
+            });
+        }
+
+        function initializeSidebar() {
+            const openSidebarBtn = document.getElementById('open-sidebar');
+            const closeSidebarBtn = document.getElementById('close-sidebar');
+            const sidebar = document.getElementById('sidebar');
+
+            openSidebarBtn.addEventListener('click', () => {
+                sidebar.classList.add('open');
+            });
+
+            openSidebarBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                sidebar.classList.add('open');
+            });
+
+            closeSidebarBtn.addEventListener('click', () => {
+                sidebar.classList.remove('open');
+            });
+
+            closeSidebarBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                sidebar.classList.remove('open');
+            });
+        }
+
+        function initializeSlideshow() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            let slideInterval = setInterval(nextSlide, 4000);
+
+            const slideshow = document.querySelector('.slideshow');
+            slideshow.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            slideshow.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 4000));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        slideshow.classList.add('visible');
+                        slideInterval = setInterval(nextSlide, 4000);
+                    } else {
+                        slideshow.classList.remove('visible');
+                        clearInterval(slideInterval);
+                    }
+                });
+            }, { threshold: 5 });
+
+            observer.observe(slideshow);
+        }
+
+        initializeCards();
+        initializeSidebar();
+        initializeSlideshow();
+    </script>
+</body>
+</html>
